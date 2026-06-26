@@ -3,7 +3,7 @@
 body{
     background-position: center;
     background-size: cover;
-    background-image: url(assets/whimsy-bg-1.png);
+    background-image: url(assets/whimsy-bg-1.webp);
 }
 body::before{
     content: "";
@@ -11,7 +11,7 @@ body::before{
     inset: 0;
     background-position: center;
     background-size: cover;
-    background-image: url(assets/whimsy-frame.png);
+    background-image: url(assets/whimsy-frame.webp);
     z-index: 1;
     pointer-events: none;
 }

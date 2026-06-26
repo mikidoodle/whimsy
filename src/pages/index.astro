@@ -4,9 +4,9 @@ import Popup from "../components/Popup.astro";
 ---
 
 <Layout>
-  <audio id="bg-music" src="/assets/music/curious-creatures.mp3" loop></audio>
-  <audio id="click" src="/assets/music/mouse-click.mp3"></audio>
-  <audio id="miau" src="/assets/music/miau.mp3"></audio>
+  <audio id="bg-music" src="assets/music/curious-creatures.mp3" loop></audio>
+  <audio id="click" src="assets/music/mouse-click.mp3"></audio>
+  <audio id="miau" src="assets/music/miau.mp3"></audio>
   <div class="mx-32">
     <img
       id="submissions"
@@ -42,12 +42,12 @@ import Popup from "../components/Popup.astro";
   <Popup
     id="open-submissions"
     background="assets/open-submissions.png"
-    classAdd="top-35 left-1/16"
+    classAdd="top-35 left-5"
   />
   <Popup
     id="open-faq"
     background="assets/open-faq.png"
-    classAdd="top-35 right-1/16"
+    classAdd="top-35 right-5"
   />
   <!--box-->
   <Popup
@@ -71,12 +71,7 @@ import Popup from "../components/Popup.astro";
     classAdd="top-90 left-63"
   />
   <!--end of box -->
-  <Popup
-    id="open-ideas"
-    background="assets/open-ideas.png"
-    classAdd="top-35 right-1/16"
-  />
-  <!--YOU NEED TO DRAW THIS!!!!!!!!!!!-->
+  <!--YOU NEED TO DRAW ideasss!!!!!!!!!!!-->
 
   <script>
     const submissions = document.getElementById(
@@ -91,7 +86,6 @@ import Popup from "../components/Popup.astro";
       "open-submissions",
     ) as HTMLElement;
     const openFAQ = document.getElementById("open-faq") as HTMLElement;
-    const openIdeas = document.getElementById("open-ideas") as HTMLElement;
     const openFigurine = document.getElementById("open-figurine") as HTMLElement;
     const openKeycap = document.getElementById("open-keycap") as HTMLElement;
     const openStickers= document.getElementById("open-stickers") as HTMLElement;
@@ -102,8 +96,8 @@ import Popup from "../components/Popup.astro";
     const miauSFX = document.getElementById("miau") as HTMLAudioElement;
     let musicStarted = false;
 
-    const bgPath1 = "url(assets/whimsy-bg-1.png)";
-    const bgPath2 = "url(assets/whimsy-bg-2.png)";
+    const bgPath1 = "url(assets/whimsy-bg-1.webp)";
+    const bgPath2 = "url(assets/whimsy-bg-2.webp)";
     let count = 1;
 
     //start bg music
@@ -154,7 +148,6 @@ import Popup from "../components/Popup.astro";
 
     makeClickable(submissions, [openSubmissions]);
     makeClickable(faq, [openFAQ]);
-    makeClickable(ideas, [openIdeas]);
     makeClickable(box, [openFigurine, openKeycap, openStickers, openSurprise]);
 
     frog?.addEventListener("click", () => {
