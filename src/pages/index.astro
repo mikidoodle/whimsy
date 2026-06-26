@@ -4,28 +4,28 @@ import Popup from "../components/Popup.astro";
 ---
 
 <Layout>
-  <audio id="bg-music" src="assets/music/curious-creatures.mp3" loop></audio>
-  <audio id="click" src="assets/music/mouse-click.mp3"></audio>
-  <audio id="miau" src="assets/music/miau.mp3"></audio>
+  <audio id="bg-music" src="/assets/music/curious-creatures.mp3" loop></audio>
+  <audio id="click" src="/assets/music/mouse-click.mp3"></audio>
+  <audio id="miau" src="/assets/music/miau.mp3"></audio>
   <div class="mx-32">
     <img
       id="submissions"
-      src="assets/submissions-1.png"
+      src="/assets/submissions-1.png"
       class="justify-center fixed top-100 left-120 transition-all hover:scale-[1.05]"
     />
     <img
       id="faq"
-      src="assets/faq-1.png"
+      src="/assets/faq-1.png"
       class="justify-center fixed bottom-120 right-100 transition-all hover:scale-[1.05]"
     />
     <img
       id="ideas"
-      src="assets/ideas-1.png"
+      src="/assets/ideas-1.png"
       class="justify-center fixed top-100 right-120 transition-all hover:scale-[1.05]"
     />
     <img
       id="box"
-      src="assets/box-1.png"
+      src="/assets/box-1.png"
       class="justify-center fixed bottom-120 left-100 transition-all hover:scale-[1.05]"
     />
     <a
@@ -34,40 +34,40 @@ import Popup from "../components/Popup.astro";
     >
       <img
         id="frog"
-        src="assets/frog-1.png"
+        src="/assets/frog-1.png"
       />
     </a>
   </div>
 
   <Popup
     id="open-submissions"
-    background="assets/open-submissions.png"
+    background="/assets/open-submissions.png"
     classAdd="top-35 left-5"
   />
   <Popup
     id="open-faq"
-    background="assets/open-faq.png"
+    background="/assets/open-faq.png"
     classAdd="top-35 right-5"
   />
   <!--box-->
   <Popup
     id="open-figurine"
-    background="assets/open-figurine.png"
+    background="/assets/open-figurine.png"
     classAdd="top-5 left-123"
   />
   <Popup
     id="open-keycap"
-    background="assets/open-keycap.png"
+    background="/assets/open-keycap.png"
     classAdd="top-40 left-40"
   />
   <Popup
     id="open-stickers"
-    background="assets/open-stickers.png"
+    background="/assets/open-stickers.png"
     classAdd="-top-5 left-70"
   />
   <Popup
     id="open-surprise"
-    background="assets/open-surprise.png"
+    background="/assets/open-surprise.png"
     classAdd="top-90 left-63"
   />
   <!--end of box -->
@@ -96,8 +96,8 @@ import Popup from "../components/Popup.astro";
     const miauSFX = document.getElementById("miau") as HTMLAudioElement;
     let musicStarted = false;
 
-    const bgPath1 = "url(assets/whimsy-bg-1.webp)";
-    const bgPath2 = "url(assets/whimsy-bg-2.webp)";
+    const bgPath1 = "url(/assets/whimsy-bg-1.png)";
+    const bgPath2 = "url(/assets/whimsy-bg-2.png)";
     let count = 1;
 
     //start bg music
@@ -127,14 +127,14 @@ import Popup from "../components/Popup.astro";
 
     makeHoverable(
       submissions,
-      "assets/submissions-1.png",
-      "assets/submissions-2.png",
+      "/assets/submissions-1.png",
+      "/assets/submissions-2.png",
     );
 
-    makeHoverable(faq, "assets/faq-1.png", "assets/faq-2.png");
-    makeHoverable(ideas, "assets/ideas-1.png", "assets/ideas-2.png");
-    makeHoverable(box, "assets/box-1.png", "assets/box-2.png");
-    makeHoverable(frog, "assets/frog-1.png", "assets/frog-2.png");
+    makeHoverable(faq, "/assets/faq-1.png", "assets/faq-2.png");
+    makeHoverable(ideas, "/assets/ideas-1.png", "assets/ideas-2.png");
+    makeHoverable(box, "/assets/box-1.png", "assets/box-2.png");
+    makeHoverable(frog, "/assets/frog-1.png", "assets/frog-2.png");
 
     //make click popup
     function makeClickable(element: HTMLImageElement, popups: HTMLElement[]) {
