@@ -4,6 +4,7 @@ body{
     background-position: center;
     background-size: cover;
     background-image: url(/assets/whimsy-bg-1.png);
+    cursor: url(/assets/custom-cursor-1.png), auto;
 }
 body::before{
     content: "";
@@ -14,4 +15,7 @@ body::before{
     background-image: url(/assets/whimsy-frame.png);
     z-index: 1;
     pointer-events: none;
+}
+a:hover{
+    cursor: url(/assets/custom-cursor-1.png), auto;
 }

@@ -8,7 +8,7 @@ import Popup from "../components/Popup.astro";
   <audio id="bg-music" src="/assets/music/curious-creatures.mp3" loop></audio>
   <audio id="click" src="/assets/music/mouse-click.mp3"></audio>
   <audio id="miau" src="/assets/music/miau.mp3"></audio>
-  <div class="mx-32">
+  <div id="hoverable" class="mx-32">
     <img
       id="submissions"
       src="/assets/submissions-1.png"
@@ -120,6 +120,7 @@ import Popup from "../components/Popup.astro";
       element?.addEventListener("mouseenter", () => {
         element.src = image2;
         miauSFX.pause();
+        miauSFX.volume = 0.2
         miauSFX.play();
       });
       element?.addEventListener("mouseleave", () => {
