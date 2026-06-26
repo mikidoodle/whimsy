@@ -6,24 +6,26 @@ import Popup from "../components/Popup.astro";
 <Layout>
   <audio id="bg-music" src="/assets/music/curious-creatures.mp3" loop></audio>
   <div class="mx-32">
-    <button id="popup-button-1" class="justify-center">
-      <img src="assets/yt-icon.png" class="w-20 h-20" />
-    </button>
+    <img id="submissions" src="assets/submissions-1.png" class="justify-center fixed top-100 left-100 transition-all hover:scale-[1.05]"/>
   </div>
 
-  <Popup id="popup-1" title="faq" background="assets/yt-icon.png">
-    <p>answer questions ok</p>
+  <Popup id="open-submissions" background="assets/open-submissions.png" position="top-1/16">
   </Popup>
   <script>
-    const popupButton1 = document.getElementById("popup-button-1");
-    const popup1 = document.getElementById("popup-1");
+    const submissions = document.getElementById("submissions") as HTMLImageElement;
+    const openSubmissions = document.getElementById("open-submissions");
+    
     const bgMusic = document.getElementById("bg-music") as HTMLAudioElement;
-
     let musicStarted = false;
 
-    let bgPath1 = "url(assets/whimsy-bg-1.png)";
-    let bgPath2 = "url(assets/whimsy-bg-2.png)";
+    const bgPath1 = "url(assets/whimsy-bg-1.png)";
+    const bgPath2 = "url(assets/whimsy-bg-2.png)";
     let count = 1;
+
+    let boxOpen = false;
+    let submissionOpen = false;
+    let ideasOpen = false;
+    let faqOpen = false;
 
     document.addEventListener("click", () => {
       if (!musicStarted) {
@@ -32,9 +34,17 @@ import Popup from "../components/Popup.astro";
       }
     });
 
-    popupButton1?.addEventListener("click", () => {
-      popup1?.classList.toggle("hidden");
+    submissions?.addEventListener("click", () => {
+      openSubmissions?.classList.toggle("hidden");
     });
+
+    submissions?.addEventListener("mouseenter", () => {
+      submissions.src = "assets/submissions-2.png";
+    })
+
+    submissions?.addEventListener("mouseleave", () => {
+      submissions.src = "assets/submissions-1.png";
+    })
 
     setInterval(() => {
       count += 1;
@@ -48,12 +58,12 @@ import Popup from "../components/Popup.astro";
     }, 500);
 
     function makeDraggable(popup: HTMLElement) {
-      const handle = popup.querySelector<HTMLElement>(".popup-handle");
       let isDragging = false;
       let offsetX = 0;
       let offsetY = 0;
 
-      handle?.addEventListener("mousedown", (e: MouseEvent) => {
+      popup?.addEventListener("mousedown", (e: MouseEvent) => {
+        e.preventDefault();
         isDragging = true;
         const rect = popup.getBoundingClientRect();
         offsetX = e.clientX - rect.left;
@@ -71,19 +81,10 @@ import Popup from "../components/Popup.astro";
       });
     }
 
-    function makeClosable(popup: HTMLElement) {
-      const cancel = popup.querySelector<HTMLElement>(".popup-close");
-
-      cancel?.addEventListener("click", (e: MouseEvent) => {
-        popup.classList.toggle("hidden");
-      });
-    }
-
     //make all popups on the page draggable
     const popups = document.querySelectorAll<HTMLElement>(".popup");
     popups.forEach((popup) => {
       makeDraggable(popup);
-      makeClosable(popup);
     });
   </script>
 </Layout>
