@@ -3,7 +3,7 @@ import "../styles/global.css";
 const {
   title = "whimsy",
   description = "a very whimsy ysws",
-  image = "/assets/whimsy-thumbnail.png",
+  image = "/assets/whimsy-og.jpg",
 } = Astro.props;
 const imageUrl = new URL(image, Astro.site ?? Astro.url.origin).toString();
 const pageUrl = new URL(
@@ -31,16 +31,25 @@ const pageUrl = new URL(
       href="/favicon/apple-touch-icon.png"
     />
     <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="canonical" href={pageUrl} />
 
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={title} />
     <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:width" content="2364" />
-    <meta property="og:image:height" content="1286" />
+    <meta property="og:image:secure_url" content={imageUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
     <title>{title}</title>
   </head>
   <body>
