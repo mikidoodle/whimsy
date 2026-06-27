@@ -5,7 +5,7 @@ const {
   description = "whimsy",
   image = "/assets/whimsy-thumbnail.png",
 } = Astro.props;
-const imageUrl = new URL(image, Astro.site ?? Astro.url.origin).toString();
+const imageUrl = "whimsy.hackclub.com/assets/whimsy-thumbnail.png";
 const pageUrl = new URL(
   Astro.url.pathname,
   Astro.site ?? Astro.url.origin,
